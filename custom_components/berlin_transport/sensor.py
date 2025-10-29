@@ -41,6 +41,7 @@ from .const import (  # pylint: disable=unused-import
     CONF_TYPE_TRAM,
     CONF_DEPARTURES_NAME,
     DEFAULT_ICON,
+    STOP_SUFFIX_BERLIN,
 )
 from .departure import Departure
 
@@ -126,7 +127,7 @@ class TransportSensor(SensorEntity):
     def name(self) -> str:
         name = self.sensor_name or f"Stop ID: {self.stop_id}"
         if self.remove_berlin_suffix and name:
-            name = name.replace("(Berlin)", "").strip()
+            name = name.replace(STOP_SUFFIX_BERLIN, "").strip()
         return name
     
     @property
@@ -241,7 +242,7 @@ class TransportSensor(SensorEntity):
         if self.remove_berlin_suffix:
             for d in filtered_departures:
                 if d.direction:
-                    d.direction = d.direction.replace("(Berlin)", "").strip()
+                    d.direction = d.direction.replace(STOP_SUFFIX_BERLIN, "").strip()
 
         # Step 5: Return result
             # Return filtered result, ordered by timestamp
