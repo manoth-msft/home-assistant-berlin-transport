@@ -30,6 +30,7 @@ from .const import (  # pylint: disable=unused-import
     CONF_DEPARTURES_WALKING_TIME,
     CONF_EXCLUDE_RINGBAHN_CLOCKWISE,
     CONF_EXCLUDE_RINGBAHN_COUNTERCLOCKWISE,
+    CONF_REMOVE_BERLIN_SUFFIX,
     CONF_SHOW_API_LINE_COLORS,
     CONF_TYPE_BUS,
     CONF_TYPE_EXPRESS,
@@ -68,6 +69,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
                 vol.Optional(CONF_SHOW_API_LINE_COLORS, default=False): cv.boolean,
                 vol.Optional(CONF_EXCLUDE_RINGBAHN_CLOCKWISE, default=False): cv.boolean,
                 vol.Optional(CONF_EXCLUDE_RINGBAHN_COUNTERCLOCKWISE, default=False): cv.boolean,
+                vol.Optional(CONF_REMOVE_BERLIN_SUFFIX, default=False): cv.boolean,
                 **TRANSPORT_TYPES_SCHEMA,
             }
         ]
@@ -110,6 +112,7 @@ class TransportSensor(SensorEntity):
         # we add +1 minute anyway to delete the "just gone" transport
         self.exclude_ringbahn_clockwise: bool = config.get(CONF_EXCLUDE_RINGBAHN_CLOCKWISE) or False
         self.exclude_ringbahn_counterclockwise: bool = config.get(CONF_EXCLUDE_RINGBAHN_COUNTERCLOCKWISE) or False
+        self.remove_berlin_suffix: bool = config.get(CONF_REMOVE_BERLIN_SUFFIX) or False
         self.show_api_line_colors: bool = config.get(CONF_SHOW_API_LINE_COLORS) or False
         self.session: CachedSession = CachedSession(
             backend='memory',
