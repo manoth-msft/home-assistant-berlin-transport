@@ -26,6 +26,7 @@ from .const import (
     CONF_SHOW_API_LINE_COLORS,
     CONF_EXCLUDE_RINGBAHN_CLOCKWISE,
     CONF_EXCLUDE_RINGBAHN_COUNTERCLOCKWISE,
+    CONF_REMOVE_BERLIN_SUFFIX,
     DOMAIN, # noqa
 )
 
@@ -45,6 +46,7 @@ DATA_SCHEMA = vol.Schema(
         vol.Optional(CONF_SHOW_API_LINE_COLORS, default=False): cv.boolean,
         vol.Optional(CONF_EXCLUDE_RINGBAHN_CLOCKWISE, default=False): cv.boolean,
         vol.Optional(CONF_EXCLUDE_RINGBAHN_COUNTERCLOCKWISE, default=False): cv.boolean,
+        vol.Optional(CONF_REMOVE_BERLIN_SUFFIX, default=False): cv.boolean,
         **TRANSPORT_TYPES_SCHEMA,
     }
 )
