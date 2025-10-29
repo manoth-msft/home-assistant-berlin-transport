@@ -122,8 +122,6 @@ class TransportSensor(SensorEntity):
         )
 
     @property
-#    def name(self) -> str:
-#        return self.sensor_name or f"Stop ID: {self.stop_id}"
     def name(self) -> str:
         name = self.sensor_name or f"Stop ID: {self.stop_id}"
         if self.remove_berlin_suffix and name:
