@@ -121,9 +121,14 @@ class TransportSensor(SensorEntity):
         )
 
     @property
+#    def name(self) -> str:
+#        return self.sensor_name or f"Stop ID: {self.stop_id}"
     def name(self) -> str:
-        return self.sensor_name or f"Stop ID: {self.stop_id}"
-
+        name = self.sensor_name or f"Stop ID: {self.stop_id}"
+        if self.remove_berlin_suffix and name:
+            name = name.replace("(Berlin)", "").strip()
+        return name
+    
     @property
     def icon(self) -> str:
         next_departure = self.next_departure()
