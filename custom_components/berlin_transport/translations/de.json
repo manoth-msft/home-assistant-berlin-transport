@@ -25,6 +25,7 @@
           "excluded_stops": "Diese nahegelegenen Haltestellen ignorieren",
           "exclude_ringbahn_clockwise": "Ringbahn ⟳ (im Uhrzeigersinn) ausblenden",
           "exclude_ringbahn_counterclockwise": "Ringbahn ⟲ (im Gegen-Uhrzeigersinn) ausblenden",
+          "remove_berlin_suffix": "Zusatz '(Berlin)' aus Stationsnamen entfernen",
           "show_official_line_colors": "Offizielle VBB-Farben verwenden",
           "duration": "Zeitraum für Abfahrten (Minuten)",
           "suburban": "S-Bahn anzeigen",
