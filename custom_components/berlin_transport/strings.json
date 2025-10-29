@@ -25,6 +25,7 @@
           "excluded_stops": "Exclude nearby stops with IDs",
           "exclude_ringbahn_clockwise": "Do not show Ringbahn ⟳ (clockwise)",
           "exclude_ringbahn_counterclockwise": "Do not show Ringbahn ⟲ (counter clockwise)",
+          "remove_berlin_suffix": "Remove (Berlin) suffix from destination names",
           "show_official_line_colors": "Enable official VBB line colors",
           "duration": "Show departures for how many minutes?",
           "suburban": "Include S-Bahn",
