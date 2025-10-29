@@ -233,10 +233,10 @@ class TransportSensor(SensorEntity):
         ]
 
         # Step 4: Clean direction suffix if enabled
-     #       if self.remove_berlin_suffix:
-     #           for d in filtered_departures:
-     #               if d.direction:
-     #                   d.direction = d.direction.replace("(Berlin)", "").strip()
+        if self.remove_berlin_suffix:
+            for d in filtered_departures:
+                if d.direction:
+                    d.direction = d.direction.replace("(Berlin)", "").strip()
 
         # Step 5: Return result
             # Return filtered result, ordered by timestamp
