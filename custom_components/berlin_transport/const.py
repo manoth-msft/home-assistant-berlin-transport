@@ -27,6 +27,8 @@ CONF_TYPE_FERRY = "ferry"
 CONF_TYPE_EXPRESS = "express"
 CONF_TYPE_REGIONAL = "regional"
 
+STOP_SUFFIX_BERLIN = "(Berlin)"
+
 TRANSPORT_TYPE_VISUALS = {
     CONF_TYPE_SUBURBAN: {
         "code": "S",
