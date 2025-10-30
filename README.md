@@ -31,6 +31,7 @@ The component consists of two parts:
     - Enable official VBB line colors: Optionally enable official VBB line colors. By default, predefined colors are used.
     - Hide Ringbahn ⟳/⟲: Optionally hide Ringbahn services running clockwise or counter‑clockwise.  
         - Example: Suppose you want to monitor departures from *Treptower Park*. You set the direction filter to *900077106 (S Sonnenallee)*, because you only want to see trains heading clockwise from *Treptower Park*. However, the Ringbahn S42 ⟲ (counter‑clockwise) will also eventually reach *S Sonnenallee*, so the BVG/VBB API will return those departures as well. This option lets you hide such entries.
+    - Remove *(Berlin)* suffix: The BVG appends a "(Berlin)" suffix to some stations. Enable this option to automatically remove this suffix from all stops.
     - Transport options: Choose which transport types (e.g., bus, ferry) to show or hide.
 1. Done. If you want to change options later on, just run through the steps again with the same stop. The previous entity will be overwritten automatically.
 
@@ -74,6 +75,7 @@ sensor:
         # show_official_line_colors: true # Optionally enable official VBB line colors. By default predefined colors will be used.
         # exclude_ringbahn_clockwise: true # Optionally hide Ringbahn services running clockwise
         # exclude_ringbahn_counterclockwise: false # Optionally hide Ringbahn services running counter‑clockwise
+        # remove_berlin_suffix: false # Optionally remove the (Berlin) suffix which the BVG appoends to some stops.
         # duration: 30 # Optional (default 10), query departures for how many minutes from now?
 ```
 
