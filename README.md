@@ -1,10 +1,8 @@
-# Berlin (BVG) and Brandenburg (VBB) transport widget for Home Assistant
+# 🚉 Berlin (BVG) and Brandenburg (VBB) transport widget for Home Assistant
 
-Custom integration that displays upcoming departures from your defined public transport stops for Berlin and Brandenburg.
+This Home Assistant integration brings live public transport data from Berlin and Brandenburg directly to your smart home dashboard — covering both BVG (Berlin) and VBB (Brandenburg) networks.
 
-This repository contains only the integration, **the Lovelace card itself lives here: https://github.com/vas3k/lovelace-berlin-transport-card**
-
-You need to install them both. Preferably through HACS. We have separated two repositories to make installation through it more convenient.
+Whether you're heading to work, picking up the kids, or just wondering when the next Ringbahn arrives — this integration shows upcoming departures from your selected stops, including line numbers, destinations, and departure times. All in real time, beautifully displayed like a digital station board.
 
 ![](./docs/screenshots/timetable-card.jpg)
 
@@ -12,10 +10,12 @@ You need to install them both. Preferably through HACS. We have separated two re
 
 ## 💿 Installation
 
-The component consists of two parts:
+This integration consists of two components:
 
-1. A sensor, which tracks departures via [VBB public API](https://v6.vbb.transport.rest/api.html#get-stopsiddepartures) every 90 seconds. This is this repository.
-2. A widget (card) for the lovelace dashboard, which displays upcoming transport in a nice way. It has its own [separate repository](https://github.com/vas3k/lovelace-berlin-transport-card) with installation instructions.
+1. Sensor – Fetches real-time departure data from the [VBB public API](https://v6.vbb.transport.rest/api.html#get-stopsiddepartures) every 90 seconds. This is the repository you're currently viewing.
+1. Lovelace card – Displays upcoming departures in a clean, dashboard-friendly format. It lives in a [separate repository](https://github.com/vas3k/lovelace-berlin-transport-card).
+
+🔧 Recommended setup: Install both components via [HACS](https://hacs.xyz/) for easy updates and seamless integration into Home Assistant.
 
 ### Install sensor component via HACS
 
