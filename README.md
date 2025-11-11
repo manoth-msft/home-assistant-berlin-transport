@@ -95,7 +95,7 @@ Go to [lovelace-berlin-transport-card](https://github.com/vas3k/lovelace-berlin-
 
 This sensor uses VBB Public API to fetch all transport information.
 
-- API docs: https://v5.vbb.transport.rest/api.html
+- API docs: [https://v5.vbb.transport.rest/api.html](https://v6.vbb.transport.rest/api.html)
 - Rate limit: 100 req/min
 - Format: [HAFAS](https://github.com/public-transport/hafas-client)
 
