@@ -1,4 +1,10 @@
-# 🚉 Berlin (BVG) and Brandenburg (VBB) transport widget for Home Assistant
+# 🚉 Berlin (BVG) and Brandenburg (VBB) departure widget for Home Assistant
+---
+
+> 🛠️ This integration is a fork of [vas3k's original Berlin Transport integration](https://github.com/vas3k/home-assistant-berlin-transport), extended with additional features and customization options.  
+> It is maintained independently and may diverge from the upstream project.
+
+---
 
 This Home Assistant integration brings live public transport data from Berlin and Brandenburg directly to your smart home dashboard — covering both BVG (Berlin) and VBB (Brandenburg) networks.
 
@@ -13,7 +19,7 @@ Whether you're heading to work, picking up the kids, or just wondering when the 
 This integration consists of two components:
 
 1. Sensor – Fetches real-time departure data from the [VBB public API](https://v6.vbb.transport.rest/api.html#get-stopsiddepartures) every 90 seconds. This is the repository you're currently viewing.
-1. Lovelace card – Displays upcoming departures in a clean, dashboard-friendly format. It lives in a [separate repository](https://github.com/vas3k/lovelace-berlin-transport-card).
+1. Lovelace card – Displays upcoming departures in a clean, dashboard-friendly format. It lives in a [separate repositoryowned by vas3k](https://github.com/vas3k/lovelace-berlin-transport-card).
 
 🔧 Recommended setup: Install both components via [HACS](https://hacs.xyz/) for easy updates and seamless integration into Home Assistant.
 
@@ -89,7 +95,7 @@ Go to [lovelace-berlin-transport-card](https://github.com/vas3k/lovelace-berlin-
 
 This sensor uses VBB Public API to fetch all transport information.
 
-- API docs: https://v5.vbb.transport.rest/api.html
+- API docs: [https://v5.vbb.transport.rest/api.html](https://v6.vbb.transport.rest/api.html)
 - Rate limit: 100 req/min
 - Format: [HAFAS](https://github.com/public-transport/hafas-client)
 
@@ -104,14 +110,14 @@ After fetching the API, it creates one entity for each stop and writes 10 upcomi
 
 ## ❤️ Contributions
 
-Contributions are welcome. Feel free to [open a PR](https://github.com/vas3k/home-assistant-berlin-transport/pulls) and send it to review. If you are unsure, [open an Issue](https://github.com/vas3k/home-assistant-berlin-transport/issues) and ask for advice.
+Contributions are welcome. Feel free to [open a PR](https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/pulls) and send it to review. If you are unsure, [open an Issue](https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/issues) and ask for advice.
 
 ## 🐛 Bug reports and feature requests
 
 Since this is my small hobby project, I cannot guarantee you a 100% support or any help with configuring your dashboards. I hope for your understanding.
 
 - **If you find a bug** - open [an Issue](https://github.com/vas3k/home-assistant-berlin-transport/issues) and describe the exact steps to reproduce it. Attach screenshots, copy all logs and other details to help me find the problem.
-- **If you're missing a certain feature**, describe it in Issues and try to code it yourself. It's not hard. At the very least, you can try to [bribe me with a PayPal donation](https://www.paypal.com/paypalme/vas3kcom) to make the feature just for you :)
+- **If you're missing a certain feature**, describe it in Issues or try to code it yourself.
 
 ## 👮‍♀️ License
 

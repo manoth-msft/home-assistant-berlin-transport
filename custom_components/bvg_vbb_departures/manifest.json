@@ -1,12 +1,12 @@
 {
-  "domain": "berlin_transport",
-  "name": "Berlin (BVG) and Brandenburg (VBB) transport",
-  "codeowners": ["@vas3k"],  
+  "domain": "bvg_vbb_departures",
+  "name": "BVG/VBB Departure Monitor",
+  "codeowners": ["@manoth-msft"],  
   "config_flow": true,
-  "documentation": "https://github.com/vas3k/home-assistant-berlin-transport",
+  "documentation": "https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/",
   "integration_type": "service",
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/vas3k/home-assistant-berlin-transport/issues",
+  "issue_tracker": "https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/issues",
   "requirements": ["requests", "requests-cache"],
   "version": "0.1.3"
   }

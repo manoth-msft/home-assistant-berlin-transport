@@ -1,5 +1,5 @@
 {
-  "name": "Berlin (BVG) and Brandenburg (VBB) transport",
+  "name": "BVG/VBB Departure Times",
   "hide_default_branch": false,
   "country": "DE",
   "homeassistant": "2023.9.0",
