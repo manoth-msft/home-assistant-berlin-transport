@@ -3,10 +3,10 @@
   "name": "BVG/VBB Departure Times",
   "codeowners": ["@manoth-msft"],  
   "config_flow": true,
-  "documentation": "https://github.com/manoth-msft/bvg_vbb_departures",
+  "documentation": "https://github.com/manoth-msft/Home-Assistant-BVG-VBB-Depatures/",
   "integration_type": "service",
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/manoth-msft/bvg_vbb_departures/issues",
+  "issue_tracker": "https://github.com/manoth-msft/Home-Assistant-BVG-VBB-Depatures/issues",
   "requirements": ["requests", "requests-cache"],
   "version": "0.1.3"
   }
