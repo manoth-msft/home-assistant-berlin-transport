@@ -3,10 +3,10 @@
   "name": "BVG/VBB Departure Monitor",
   "codeowners": ["@manoth-msft"],  
   "config_flow": true,
-  "documentation": "https://github.com/manoth-msft/home-assistant-bvg_vbb-departures/",
+  "documentation": "https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/",
   "integration_type": "service",
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/manoth-msft/home-assistant-bvg_vbb-departures/issues",
+  "issue_tracker": "https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/issues",
   "requirements": ["requests", "requests-cache"],
   "version": "0.1.3"
   }
