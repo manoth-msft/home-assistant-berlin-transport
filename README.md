@@ -1,4 +1,4 @@
-# 🚉 Berlin (BVG) and Brandenburg (VBB) departure widget for Home Assistant
+# 🚉 Berlin (BVG) and Brandenburg (VBB) departure widget for Home Assistant (0.1.3)
 ---
 
 > 🛠️ This integration is a fork of [vas3k's original Berlin Transport integration](https://github.com/vas3k/home-assistant-berlin-transport), extended with additional features and customization options.  
