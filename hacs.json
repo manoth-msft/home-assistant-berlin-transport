@@ -1,5 +1,5 @@
 {
-  "name": "BVG/VBB Departures",
+  "name": "BVG/VBB Departures (HACS)",
   "hide_default_branch": false,
   "country": "DE",
   "homeassistant": "2023.9.0",
