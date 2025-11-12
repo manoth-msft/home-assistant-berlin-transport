@@ -1,19 +1,16 @@
 # 🚉 Abfahrtszeiten im Berliner und Brandenburger ÖPNV (BVG/VBB) für Home Assistant
 
----
+Diese Integration bringt **Live-Daten des öffentlichen Nahverkehrs** aus Berlin und Brandenburg direkt auf dein Home Assistant-Dashboard. Sie nutzt die offizielle VBB-API, um Echtzeit-Abfahrten von BVG- und VBB-Haltestellen abzurufen — einschließlich Liniennummern, Zielhaltestellen, Abfahrtszeiten und Verspätungen.
 
-> 🛠️ Diese Integration ist ein Fork der [ursprünglichen Berlin-Transport-Integration von vas3k](https://github.com/vas3k/home-assistant-berlin-transport), erweitert um zusätzliche Funktionen und Anpassungsmöglichkeiten.  
-> Sie wird unabhängig gepflegt und kann sich vom ursprünglichen Projekt unterscheiden.
+Egal ob du pendelst, die Kinder abholst oder dich einfach fragst, wann die nächste Ringbahn kommt:  
+Diese Integration zeigt bevorstehende Abfahrten deiner ausgewählten Haltestellen in einem übersichtlichen, gut lesbaren Format.
 
----
+> 🛠️ Dieses Projekt ist ein Fork der ursprünglichen Berlin-Transport-Integration von [vas3k](https://github.com/vas3k/home-assistant-berlin-transport) — erweitert um Filterfunktionen, Anpassungsmöglichkeiten und unabhängige Pflege.
 
-Diese Home Assistant-Integration bringt Live-Daten des öffentlichen Nahverkehrs aus Berlin und Brandenburg direkt auf dein Smart-Home-Dashboard — mit Unterstützung für die Verkehrsnetze der BVG (Berlin) und VBB (Brandenburg).
+![Beispielhafte Darstellung von Live-Abfahrten am Bahnhof S+U Gesundbrunnen in Berlin, ähnlich wie im Home Assistant-Dashboard.](./screenshots/timetable_card2.jpg)  
+![Weiteres Beispiel](./screenshots/timetable_card3.jpg)  
+![Weiteres Beispiel](./screenshots/timetable_card1.jpg)
 
-Egal ob du zur Arbeit fährst, die Kinder abholst oder dich fragst, wann die nächste Ringbahn kommt — diese Integration zeigt dir die bevorstehenden Abfahrten deiner ausgewählten Haltestellen, inklusive Liniennummern, Zielhaltestellen und Abfahrtszeiten. Alles in Echtzeit, optisch aufbereitet wie eine digitale Abfahrtstafel.
-
-![Abfahrtstafel](./docs/screenshots/timetable-card.jpg)
-
-> Ich verwende das [iOS Dark Mode Theme](https://github.com/basnijholt/lovelace-ios-dark-mode-theme) von @basnijholt, installiert über [HACS](https://hacs.xyz/)
 
 ## 💿 Installation
 
