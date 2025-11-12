@@ -95,7 +95,7 @@ Go to [lovelace-berlin-transport-card](https://github.com/vas3k/lovelace-berlin-
 
 This sensor uses VBB Public API to fetch all transport information.
 
-- API docs: [https://v5.vbb.transport.rest/api.html](https://v6.vbb.transport.rest/api.html)
+- API docs: [https://v6.vbb.transport.rest/api.html](https://v6.vbb.transport.rest/api.html)
 - Rate limit: 100 req/min
 - Format: [HAFAS](https://github.com/public-transport/hafas-client)
 
@@ -116,7 +116,7 @@ Contributions are welcome. Feel free to [open a PR](https://github.com/manoth-ms
 
 Since this is my small hobby project, I cannot guarantee you a 100% support or any help with configuring your dashboards. I hope for your understanding.
 
-- **If you find a bug** - open [an Issue](https://github.com/vas3k/home-assistant-berlin-transport/issues) and describe the exact steps to reproduce it. Attach screenshots, copy all logs and other details to help me find the problem.
+- **If you find a bug** - open [an Issue](https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/issues) and describe the exact steps to reproduce it. Attach screenshots, copy all logs and other details to help me find the problem.
 - **If you're missing a certain feature**, describe it in Issues or try to code it yourself.
 
 ## 👮‍♀️ License
