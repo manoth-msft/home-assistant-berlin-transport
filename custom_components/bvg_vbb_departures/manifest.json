@@ -1,5 +1,5 @@
 {
-  "domain": "bvg_vbb_departures",
+  "domain": "berlin_transport",
   "name": "BVG/VBB Departure Monitor",
   "codeowners": ["@manoth-msft"],  
   "config_flow": true,
