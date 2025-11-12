@@ -1,6 +1,6 @@
 {
   "domain": "berlin_transport",
-  "name": "BVG/VBB Departure Monitor",
+  "name": "BVG/VBB Departures",
   "codeowners": ["@manoth-msft"],  
   "config_flow": true,
   "documentation": "https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/",
