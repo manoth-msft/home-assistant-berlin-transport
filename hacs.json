@@ -1,5 +1,5 @@
 {
-  "name": "BVG/VBB Departure Sensor",
+  "name": "BVG/VBB Departures",
   "hide_default_branch": false,
   "country": "DE",
   "homeassistant": "2023.9.0",
