@@ -39,7 +39,7 @@ Click **Add**, then reload the HACS page (hit `F5`) to make sure both repositori
 ### 2️⃣ Search and install components via HACS
 
 1. After refreshing the HACS page, use the search bar and type **bvg**.  
-1. Add the following components:
+1. We need the following components:
    - **BVG/VBB real-time departures** (Integration)  
    - **Card for BVG/VBB real-time departures integration** (dashboard)
 1. Open each entry and select **Download** from the lower‑right corner.
@@ -55,78 +55,142 @@ Click **Add**, then reload the HACS page (hit `F5`) to make sure both repositori
 1. Finally, click **OK** and **Done**. The entity will be created and receive its first update within 1–2 minutes.
 
 ### 4️⃣ Add card to dashboard
-1. Navigate to the dashboard of your choice and add a card.
-1. Under **custom cards** you will see the **BVG/VBB departures card**. Click on it.
-1. Select the just-created entity and adjust the configuration if necessary. The configuration options are described [here](#card).
-1. Save the card and it should update within a few minutes and show you the real-tiome BVG/VBB departures.
 
-Done!
+1. Open the dashboard of your choice and add a new card.  
+1. Under **Custom cards**, select the **BVG/VBB departures card**.  
+1. Choose the entity you just created and adjust the configuration if needed.  
+   → Configuration options are described [here](#card).  
+1. Save the card. Within a few minutes it will update and display the real‑time BVG/VBB departures.  
+
+Done 🎉
 
 ## ⚙️ Additional configuration details
-### Integration
+### 🔧 Integration
 
-Here you can find all optional parameters explained in detail:
-- **Direction**: Use `stop_id` to filter departures by direction. Multiple values supported.  
-- **Exclude stops**: List of `stop_id` to exclude nearby stops.  
-- **Duration**: How many minutes into the future departures are fetched (default: 10).  
-- **Walking time**: Offset to hide unreachable departures.  
-- **Enable official VBB line colors**: Use official colors instead of predefined ones.  
-- **Hide Ringbahn ⟳/⟲**: Optionally hide clockwise/counter‑clockwise Ringbahn services.  
-- **Remove (Berlin) suffix**: Automatically strip the suffix from station names.  
-- **Transport options**: Choose which transport types (bus, ferry, etc.) to show or hide.  
+- **Direction**: Use `stop_id` to filter departures by direction. Provide the `stop_id` of a stop along the intended line or its final destination. Multiple values can be specified using a comma‑separated list. See [below](#how-do-i-find-my-stop_id) for how to find the `stop_id`.  
+- **Exclude stops**: List of `stop_id` values to exclude nearby stops. Multiple values can be specified using a comma‑separated list.  
+- **Duration**: Defines how many minutes into the future departures are fetched (default: 10).  
+- **Walking time**: Enter the time needed to walk to the stop. This prevents unreachable departures from being shown.  
+- **Enable official VBB line colors**: Optionally enable official VBB line colors. By default, predefined colors are used.  
+- **Hide Ringbahn ⟳/⟲**: Optionally hide clockwise or counter‑clockwise Ringbahn services.  
+- **Remove (Berlin) suffix**: Automatically strip the "(Berlin)" suffix from station names.  
+- **Transport options**: Choose which transport types (e.g., bus, ferry) to show or hide.
 
-### Card
 
-- show_cancelled: true # show or hide the cancelled departures. When not defined or true, the  cancelled departures will be shown as struk-through.
-- show_delay: true # show or hide the delay if reported. When not defined or true, the delay will be shown next to the departure time.
-- show_absolute_time: true # show the absolute time till departure.
-- show_relative_time: true # show the relative time till departure.
-- include_walking_time: true # subtract walking time to the stop from the relative time to the departure.
+#### 📝 Example configuration
+
+Suppose you want to monitor S‑Bahn departures from **S Treptower Park**.  
+You only want to see trains heading to **S+U Neukölln**, exclude departures from the nearby bus stop, and capture the next 30 minutes.  
+Since you need about 10 minutes to reach the station, unreachable departures should be hidden.  
+You also prefer not to see the Ringbahn ⟲ (which technically also goes to S+U Neukölln) and like the clean look without the **(Berlin)** suffix appended to station names.
+
+Then your additional configuration would look like this:
+
+- **Direction**: `900078201` (S+U Neukölln)  
+- **Excluded stops**: `900190702` (bus stop at S Treptower Park)  
+- **Duration**: `30` minutes  
+- **Walking time**: `10` minutes  
+- **Hide Ringbahn ⟲**: enabled  
+- **Remove (Berlin) suffix**: enabled  
+- **Transport options**: all disabled except **Suburban**
+
+### 🗂️ Card
+
+- **Show cancelled departures**: Decide whether cancelled departures should be displayed.  
+  If enabled, they appear struck through in the list; otherwise, they are hidden.  
+
+- **Show delay**: Choose whether reported delays are shown.  
+  If enabled, the delay is displayed next to the departure time.  
+
+- **Show absolute time of departures**: Display the exact scheduled departure time.  
+
+- **Show relative time of departures**: Display the countdown (e.g., “in 5 minutes”) until departure.  
+
+- **Subtract walking time from relative time of departures**: Subtract your walking time to the stop from the relative countdown.  
+  For example, if the bus leaves in 15 minutes and you configured 10 minutes walking time, enabling this option will show that you need to leave the house in 5 minutes to catch the bus.
 
 ## ❓ FAQ
-### How do I find a `stop_id`?
+### Q: How do I find my stop_id?
 
-Unfortunately, I didn't have time to figure out a proper user-friendly approach of adding new components to Home Assistant, so you will have to do some routine work of finding the IDs of the nearest transport stops to you. Sorry about that :)
+The primary stop you select will be resolved automatically by the integration.  
+You only need to look up `stop_id` values if you want to use advanced configuration options such as **Direction** or **Excluded stops**.
 
-Simply use this URL: **https://v6.vbb.transport.rest/locations?results=1&query=alexanderplatz**
+To find a `stop_id`, you can query the VBB API. Open the link below in a new window and replace `alexanderplatz` with the name of your stop. Partial matches are supported.
 
-Replace `alexanderplatz` with the name of your own stop.
+**https://v6.vbb.transport.rest/locations?results=1&query=alexanderplatz**
 
-![](./docs/screenshots/stop-id-api.jpg)
+The API will return a response similar to:
 
-> 🧐 **Pro tip:**
-> You can also use their [location-based API](https://v6.vbb.transport.rest/api.html#get-stopsnearby) to find all stops nearby using your GPS coordinates.
+```json
+[
+  {
+    "type": "stop",
+    "id": "900100003",
+    "name": "S+U Alexanderplatz Bhf (Berlin)",
+    "location": {
+      "type": "location",
+      "id": "900100003",
+      "latitude": 52.521508,
+      "longitude": 13.411267
+    },
+    "products": {
+      "suburban": true,
+      "subway": true,
+      "tram": true,
+      "bus": true,
+      "ferry": false,
+      "express": false,
+      "regional": true
+    },
+    "stationDHID": "de:11000:900100003"
+  }
+]
+```
+The first `"id"` field contains the required `stop_id` — here: **900100003**.
 
+---
 
-## 👩‍💻 Technical details
+### Q: What data source does this sensor use?
+A: The sensor uses the VBB Public API to fetch all transport information.  
+- API docs: [https://v6.vbb.transport.rest/api.html](https://v6.vbb.transport.rest/api.html)  
+- Rate limit: 100 requests per minute  
+- Data format: [HAFAS](https://github.com/public-transport/hafas-client)
 
-This sensor uses VBB Public API to fetch all transport information.
+---
 
-- API docs: [https://v6.vbb.transport.rest/api.html](https://v6.vbb.transport.rest/api.html)
-- Rate limit: 100 req/min
-- Format: [HAFAS](https://github.com/public-transport/hafas-client)
+### Q: How often does the component update?
+A: The component updates every 90 seconds. It makes a separate request for each stop. This is usually sufficient, but adding dozens of stops is not recommended to avoid hitting the rate limit.
 
-The component updates every 90 seconds, but it makes a separate request for each stop. That's usually enough, but I wouldn't recommend adding dozens of different stops so you don't hit the rate limit.
+---
 
-The VBB API occasionally returns 503 or timeout errors due to temporary instability. While these responses are not uncommon, they do not affect the functionality of the integration beyond generating warning messages in the Home Assistant logs. At present, there is no reliable workaround for this behavior.
+### Q: What happens if the VBB API returns errors?
+A: The API may occasionally return 503 or timeout errors due to temporary instability. These do not affect the integration’s functionality beyond generating warning messages in the Home Assistant logs. Currently, there is no reliable workaround for this behavior.
 
-After fetching the API, it creates one entity for each stop and writes 10 upcoming departures into `attributes.departures`. The entity state is not really used anywhere, it just shows the next departure in a human-readable format. If you have any ideas how to use it better — welcome to Github Issues.
+---
 
- If you want to change options later on, just run through the steps again with the same stop. The previous entity will be overwritten automatically.
+### Q: What entities are created by the integration?
+A: For each stop, the integration creates one entity. It stores the upcoming departures in `attributes.departures`. The entity state itself is mainly for human-readable display of the next departure.
 
-> 🤔
-> In principle, the HAFAS format is standardized in many other cities too, so you should have no problem adapting this component to more places if you wish. Check out [transport.rest](https://transport.rest/) for an inspiration.
+---
 
-## ❤️ Contributions
+### Q: How can I change configuration options later?
+A: Go to **Settings > Devices & Services**, select the **BVG/VBB Departures** integration, and click on the three dots next to the entity you want to update. Delete the entry.  
+Then choose **Add service** and re‑add the stop with the adjusted configuration.  
+The new entity will receive the same ID as the previous one, so your dashboards do not need to be updated.
 
-Contributions are welcome. Feel free to [open a PR](https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/pulls) and send it to review. If you are unsure, [open an Issue](https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/issues) and ask for advice.
+### Q: Can I use the integration outside of Berlin and Brandenburg?
+A: The integration is based on the standardized HAFAS format, which is used in many other cities as well. This means you should be able to adapt the component to other locations if desired.
 
-## 🐛 Bug reports and feature requests
+## 🤝 Contributions, Bugs & Feature Requests
 
-Since this is my small hobby project, I cannot guarantee you a 100% support or any help with configuring your dashboards. I hope for your understanding.
+This project is a small side project, so while I cannot guarantee full support or help with dashboard configuration, I truly appreciate your understanding — and even more your contributions!
 
-- **If you find a bug** - open [an Issue](https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/issues) and describe the exact steps to reproduce it. Attach screenshots, copy all logs and other details to help me find the problem.
-- **If you're missing a certain feature**, describe it in Issues or try to code it yourself.
+- **Contributions**: Pull requests are always welcome. Feel free to [open a PR](https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/pulls) for review.
+  If you’re unsure about an idea, simply [open an issue](https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/issues) and ask for advice.
+
+- **Bug reports**: If you discover a bug, please [open an issue](https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/issues) and describe the exact steps to reproduce it. Screenshots, logs, and details are very helpful to track down the problem.
+
+- **Feature requests**: Missing a feature? Share your idea in issues — or feel free to try coding it yourself and submit a PR.
 
 ## 👮‍♀️ License
 
