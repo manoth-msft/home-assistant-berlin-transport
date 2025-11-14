@@ -10,20 +10,43 @@ Whether you're commuting, picking up your kids, or just wondering when the next 
 
 ![Example of a real-time public transport display at S+U Gesundbrunnen Bhf  station in Berlin, similar to how departures appear in the Home Assistant dashboard.](./docs/screenshots/timetable_card2.jpg)![Another example](./docs/screenshots/timetable_card3.jpg)![Another example](./docs/screenshots/timetable_card1.jpg)
 
+## ✨ Features
+- **Real-time departures** from BVG & VBB stops, including line numbers, destinations, delays, and platforms, updated every 90 seconds  
+- **Dashboard card integration** for a clean, user-friendly display of upcoming departures
+- **Advanced filtering options**: direction, excluded stops, transport types (bus, tram, ferry, etc.)  
+- **Customization**: walking time offset, duration window, official VBB line colors, Ringbahn ⟳/⟲ toggle  
+- **Localization support** with German and English translations
+
 ## 💿 Installation
 
-This integration consists of two components:
+This integration consists of two parts:  
+1. **Integration** – fetches real-time departure data from BVG/VBB  
+1. **Dashboard card** – displays the data in a clean, user-friendly format  
 
-1. Sensor – Fetches real-time departure data from the [VBB public API](https://v6.vbb.transport.rest/api.html#get-stopsiddepartures) every 90 seconds. This is the repository you're currently viewing.
-1. Lovelace card – Displays upcoming departures in a clean, dashboard-friendly format. It lives in a [separate repository owned by vas3k](https://github.com/vas3k/lovelace-berlin-transport-card).
+You need both components. The recommended way to install is via [HACS](https://hacs.xyz/) for easy updates and seamless integration. The setup takes less than 10 minutes.
 
-🔧 Recommended setup: Install both components via [HACS](https://hacs.xyz/) for easy updates and seamless integration into Home Assistant.
+If you prefer manual installation, please see the [manual installation guide](./docs/manual_install.md).
 
-### Install sensor component via HACS
+### 1. Add repositories to HACS
 
-1. Add this [repository](https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/) as a custom repository in HACS in the category "integration".
-1. Reload the HACS page, search for **BVG/VBB Departures** and download the integration.
-1. Restart Home Assistant.
+Open Home Assistant and go to **HACS → Three dots in top right corner → Custom repositories**. Add both of the following repositories:
+
+- `https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/` → Type: **Integration**  
+- `https://github.comv/manoth-msft/home-assistant-dashboard-card-bvg-vbb-departures` → Type: **Dashboard**
+
+Click **Add**, then reload the HACS page (hit `F5`) to make sure both repositories are available.
+
+### 2. Search and install components via HACS
+
+1. After refreshing the HACS page, use the search bar and type **bvg**.  
+1. Add the following components:
+   - **BVG/VBB real-time departures** (Integration)  
+   - **Card for BVG/VBB real-time departures integration** (dashboard)
+1. Open each entry and select **Download** from the lower‑right corner.
+1. Wait for the download to finish. Then refresh the HACS page and restart Home Assistant to activate both components.
+
+### 3. Add and configure integration
+
 1. Add `BVG/VBB Departures` as a new integration under `Settings` -> `Devices & services`  
 1. Search for your stop. Partial matches are supported — up to 15 relevant stops will be listed. Select the stop you want to monitor.
 1. (Optional) Configure additional parameters:
@@ -55,9 +78,6 @@ Replace `alexanderplatz` with the name of your own stop.
 > 🧐 **Pro tip:**
 > You can also use their [location-based API](https://v6.vbb.transport.rest/api.html#get-stopsnearby) to find all stops nearby using your GPS coordinates.
 
-### Add the lovelace card
-
-Go to [[lovelace-berlin-transport-card owned by vas3k](https://github.com/vas3k/lovelace-berlin-transport-card) repo and follow installation instructions there.
 
 ## 👩‍💻 Technical details
 
