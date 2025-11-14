@@ -27,16 +27,16 @@ You need both components. The recommended way to install is via [HACS](https://h
 
 If you prefer manual installation, please see the [manual installation guide](./docs/manual_install.md).
 
-### 1. Add repositories to HACS
+### 1️⃣ Add repositories to HACS
 
 Open Home Assistant and go to **HACS → Three dots in top right corner → Custom repositories**. Add both of the following repositories:
 
-- `https://github.com/manoth-msft/home-assistant-bvg-vbb-departures/` → Type: **Integration**  
+- `https://github.com/manoth-msft/home-assistant-bvg-vbb-departures` → Type: **Integration**  
 - `https://github.comv/manoth-msft/home-assistant-dashboard-card-bvg-vbb-departures` → Type: **Dashboard**
 
 Click **Add**, then reload the HACS page (hit `F5`) to make sure both repositories are available.
 
-### 2. Search and install components via HACS
+### 2️⃣ Search and install components via HACS
 
 1. After refreshing the HACS page, use the search bar and type **bvg**.  
 1. Add the following components:
@@ -45,7 +45,7 @@ Click **Add**, then reload the HACS page (hit `F5`) to make sure both repositori
 1. Open each entry and select **Download** from the lower‑right corner.
 1. Wait for the download to finish. Then refresh the HACS page and restart Home Assistant to activate both components.
 
-### 3. Add and configure integration
+### 3️⃣ Add and configure integration
 
 1. Add `BVG/VBB Departures` as a new integration under `Settings` -> `Devices & services`  
 1. Search for your stop. Partial matches are supported — up to 15 relevant stops will be listed. Select the stop you want to monitor.
@@ -61,9 +61,7 @@ Click **Add**, then reload the HACS page (hit `F5`) to make sure both repositori
     - Transport options: Choose which transport types (e.g., bus, ferry) to show or hide.
 1. Done. If you want to change options later on, just run through the steps again with the same stop. The previous entity will be overwritten automatically.
 
-### Install sensor component manually
-
-The manual installation steps are described [here](./docs/manual_install.md).
+### 4️⃣ Add card to dashboard
 
 #### How do I find a `stop_id`?
 
