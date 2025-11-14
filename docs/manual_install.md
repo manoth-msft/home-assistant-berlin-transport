@@ -2,6 +2,8 @@
 
 ### Install sensor component manually
 
+This documentation is incomplete. It will be updated in a future release.
+
 #### How do I find my `stop_id`?
 
 Unfortunately, I didn't have time to figure out a proper user-friendly approach of adding new components to Home Assistant, so you will have to do some routine work of finding the IDs of the nearest transport stops to you. Sorry about that :)
